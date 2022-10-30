@@ -47,13 +47,42 @@
             <td>{{$row->created_at->format ('D d-M-Y H:i:s')}}</td>
             <td>
               <a href="/kelurahan-update/{{$row->id}}" class="btn btn-info">Edit</a>
-              <a href="/deleteK/{{$row->id}}" class="btn btn-danger delete" data-id="{{$row->id}}" data-nama="{{$row->nama}}">Delete</a>
+              <a href="#" class="btn btn-danger delete" data-id="{{$row->id}}" data-nama="{{$row->kelurahan}}">Delete</a>
             </td>
           </tr>
           @endforeach
         </tbody>
     </table>
 </div>
+
+<script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script>
+  $('.delete').click(function(){
+     var kelurahan_id = $(this).attr('data-id');
+     var kelurahan = $(this).attr('data-nama');
+     swal({
+       title: "Kamu Yakin?",
+       text: "Ingin delete Kelurahan "+kelurahan+" !!",
+       icon: "warning",
+       buttons: true,
+       dangerMode: true,
+     })
+     .then((willDelete) => {
+       console.log(willDelete);
+       if (willDelete) {
+         window.location = "/deleteK/"+kelurahan_id+""
+         swal("Berhasil! Data ini Berhasil dihapus!", {
+           icon: "success",
+         });
+       }
+     });
+   });
+</script>
 {{$data->links()}}
 
 @endsection

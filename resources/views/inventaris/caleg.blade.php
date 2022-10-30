@@ -51,22 +51,19 @@
     </table>
   </div>
 
-  
   <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
   
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
   
   <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    
-  <script>
-  </script>
+
     <script>
        $('.delete').click(function(){
           var caleg_id = $(this).attr('data-id');
           var calon = $(this).attr('data-calon');
           swal({
             title: "Kamu Yakin?",
-            text: "Ingin delete data "+calon+"!!",
+            text: "Ingin delete calon "+calon+" !!",
             icon: "warning",
             buttons: true,
             dangerMode: true,
