@@ -51,10 +51,6 @@
     </table>
   </div>
 
-
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-  integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-  crossorigin="anonymous"></script>
   
   <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
   
@@ -62,14 +58,15 @@
   
   <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     
-    
+  <script>
+  </script>
     <script>
        $('.delete').click(function(){
           var caleg_id = $(this).attr('data-id');
           var calon = $(this).attr('data-calon');
           swal({
             title: "Kamu Yakin?",
-            text: "Ingin delete data "+calon+"!!!",
+            text: "Ingin delete data "+calon+"!!",
             icon: "warning",
             buttons: true,
             dangerMode: true,
@@ -77,7 +74,7 @@
           .then((willDelete) => {
             console.log(willDelete);
             if (willDelete) {
-              window.location = "/delete/{{$row->id}}"
+              window.location = "/delete/"+caleg_id+""
               swal("Berhasil! Data ini Berhasil dihapus!", {
                 icon: "success",
               });
